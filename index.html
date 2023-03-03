@@ -14,9 +14,12 @@
           background-color: var(--bg-color);
           color: var(--tg-theme-text-color, #222);
           font-size: 14px;
-          margin: 10px;
+          margin: 20px;
           padding: 0;
           color-scheme: var(--tg-color-scheme);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
       }
       body.gray {
           background-color: var(--tg-theme-secondary-bg-color, #efefef);
@@ -96,9 +99,7 @@
           display: block;
           box-sizing: border-box;
           font-size: 14px;
-          width: 100%;
           padding: 12px 20px;
-          margin: 15px 0;
           border: 1px solid var(--tg-theme-link-color, #000);
           background-color: var(--tg-theme-bg-color, #ffffff);
           border-radius: 4px;
@@ -149,7 +150,7 @@
           padding: 0 15px 65px;
       }
       p {
-          margin: 40px 0 15px;
+          margin: 20px 0 15px;
       }
       ul {
           text-align: left;
@@ -244,7 +245,6 @@
       .viewport-border:before,
       .viewport-stable_border:before {
           content: attr(text);
-          display: inline-block;
           position: absolute;
           background: gray;
           right: 0;
@@ -261,7 +261,6 @@
       .viewport-border:after,
       .viewport-stable_border:after {
           content: '';
-          display: block;
           position: absolute;
           left: 0;
           right: 0;
@@ -277,28 +276,74 @@
           font-size: 12px;
       }
 
+      .info {
+         display: flex;
+         flex-direction: column; 
+         justify-content: right; 
+         align-items: center;
+	      flex-grow: 0;
+	      flex-shrink: 0;
+
+      }
+
+      .rendered-form {
+         display: flex;
+         flex-direction: column; 
+         justify-content: right; 
+         align-items: center;
+	      flex-grow: 0;
+	      flex-shrink: 0;
+      }
+
       .form-group {
          display: flex;
          flex-direction: row; 
-         justify-content: center; 
+         justify-content: right; 
          align-items: center;
+	      flex-grow: 0;
+	      flex-shrink: 0;
+         width: 100%;
+         margin: 8px 0;
       }
 
-      .formbuilder-text-label {
-         max-width: 50em;
+      .radio-group, .checkbox-group, .form-control {
+         display: flex;
+         flex-direction: column; 
+         justify-content: right; 
+	      flex-grow: 0;
+	      flex-shrink: 0;
+         width: 60%;
+      }
+
+      .formbuilder-text-label, .formbuilder-radio-group-label, .formbuilder-checkbox-group-label {
+         width: 40%;
+         text-align: right;
+         margin-right: 5%;
+      }
+
+      .form-title {
+         text-align: center;
+         font-size: 17px;
+         font-weight: 400;
       }
   </style>
 </head>
 
 <body>
+   <div class="info">
+   <div class="">
+      <p class="form-title" access="false" id="control-3788243">Сертификат 500Р за прохождение нашего мини-опроса!</p>
+  </div>
+  <div class="">
+     <p access="false" id="control-3453452"><span>Дарим сертификат всем, кто пройдет небольшой опрос!</span>
+     </p>
+ </div>
+  <div class="">
+     <p access="false" id="control-9632814"><span>Ответьте на несколько вопросов и узнайте, какое направление тренировок идеально подойдет именно Вам!</span>
+     </p>
+ </div>
+</div>
    <div class="rendered-form">
-      <div class="">
-          <p class="form-title" access="false" id="control-3788243">Сертификат 500Р за прохождение нашего мини-опроса!</p>
-      </div>
-      <div class="">
-          <p access="false hint" id="control-9632814"><span>Ответьте на несколько вопросов и узнайте, какое направление тренировок идеально подойдет именно Вам!</span>
-          </p>
-      </div>
       <div class="formbuilder-text form-group field-name_field">
           <label for="name_field" class="formbuilder-text-label">Имя<span class="formbuilder-required">*</span></label>
           <input type="text" placeholder="Имя" class="form-control" name="name_field" access="false" id="name_field" required="required" aria-required="true">
@@ -341,25 +386,25 @@
           <label for="checkbox-group-1" class="formbuilder-checkbox-group-label">Что из этого вас беспокоит?<span class="formbuilder-required">*</span></label>
           <div class="checkbox-group">
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-0" required="required" aria-required="true" value="option-1" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-0" required="required" aria-required="true" value="option-1" type="checkbox">
                   <label for="checkbox-group-1-0">Неудовлетворяющая фигура</label>
               </div>
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-1" required="required" aria-required="true" value="option-2" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-1" required="required" aria-required="true" value="option-2" type="checkbox">
                   <label for="checkbox-group-1-1">Сниженное настроение</label>
               </div>
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-2" required="required" aria-required="true" value="option-3" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-2" required="required" aria-required="true" value="option-3" type="checkbox">
                   <label for="checkbox-group-1-2">Отсутствие энергии</label>
               </div>
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-3" required="required" aria-required="true" value="option-4" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-3" required="required" aria-required="true" value="option-4" type="checkbox">
                   <label for="checkbox-group-1-3">Боли в теле</label>
               </div>
           </div>
       </div>
       <div class="formbuilder-button form-group field-button-1">
-          <button type="submit" class="btn-default btn" name="button-1" id="btn" access="false" style="default" id="button-1">Отправить</button>
+          <button type="submit" class="btn-primary btn" name="button-1" id="btn" access="false" style="default" id="button-1">Отправить</button>
       </div>
   </div>
 </body>
@@ -369,59 +414,5 @@
    let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
 
    tg.expand(); //расширяем на все окно  
-
-   tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
-   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
-   tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-   tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-   tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
-
-   let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать 
-
-   btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      if (tg.MainButton.isVisible){ //если кнопка показана 
-         tg.MainButton.hide() //скрываем кнопку 
-      }
-      else{ //иначе
-         tg.MainButton.show() //показываем 
-      }
-   });
-
-   let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-   btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      if (tg.MainButton.isActive){ //если кнопка показана 
-         tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-         tg.MainButton.disable() //скрываем кнопку 
-      }
-      else{ //иначе
-         tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-         tg.MainButton.enable() //показываем 
-      }
-   });
-
-   Telegram.WebApp.onEvent('mainButtonClicked', function(){
-      tg.sendData("some string that we need to send"); 
-      //при клике на основную кнопку отправляем данные в строковом виде
-   });
-
-
-   let usercard = document.getElementById("usercard"); //получаем блок usercard 
-
-   let profName = document.createElement('p'); //создаем параграф
-   profName.innerText = `${tg.initDataUnsafe.user.first_name}
-   ${tg.initDataUnsafe.user.last_name}
-   ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-   //выдем имя, "фамилию", через тире username и код языка
-   usercard.appendChild(profName); //добавляем 
-
-   let userid = document.createElement('p'); //создаем еще параграф 
-   userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-   usercard.appendChild(userid); //добавляем
-
-
-   //работает только в attachment menu
-   // let pic = document.createElement('img'); //создаем img
-   // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src 
-   // usercard.appendChild(pic); //добавляем элемент в карточку 
 </script>
 </html>
