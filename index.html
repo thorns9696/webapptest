@@ -415,8 +415,8 @@
       let Type = "Результаты опроса"
       let Name = document.getElementById('name_field').value;
       let Phone = document.getElementById('phone_field').value;
-      let q1 = document.querySelector('input[name="radio-group-1"]:checked').value;
-      let q2 = document.querySelector('input[name="radio-group-2"]:checked').value;
+      let q1 = document.querySelector('input[name="radio-group-1"]:checked');
+      let q2 = document.querySelector('input[name="radio-group-2"]:checked');
       let q3 = document.querySelectorAll('input[name="checkbox-group-1"]:checked');
       var q3all = '';
       for (var i = 0; i < q3.length; i++) {
@@ -426,19 +426,26 @@
    if (Name && Phone && q1 && q2 && q3all) {
       tg.sendData(
       Type 
-      + '\n' + "Имя: "+ Name 
+      + '\n' + "Имя: "+ Name
       + '\n' + "Телефон: " + Phone 
-      + '\n' + "Вам нравятся активные тренировки?: "+ q1 
-      + '\n' + "Пробовали ранее занятия йогой?: "+ q2 
+      + '\n' + "Вам нравятся активные тренировки?: "+ q1.value 
+      + '\n' + "Пробовали ранее занятия йогой?: "+ q2.value 
       + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
       ); 
    } else {
       document.getElementsByClassName('hint')[0].style.visibility = 'visible';
-      if(!Name){document.getElementsByClassName('field-name_field')[0].style.color = 'red';}
-      if(!Phone){document.getElementsByClassName('field-phone_field')[0].style.color = 'red';}
+      if(!Name){document.getElementsByClassName('field-name_field')[0].style.color = 'red'; document.getElementById('name_field').style.borderColor = 'red';}
+      else {document.getElementsByClassName('field-name_field')[0].style.color = 'var(--tg-theme-text-color)'; 
+      document.getElementById('name_field').style.borderColor = 'var(--tg-theme-link-color)';}
+      if(!Phone){document.getElementsByClassName('field-phone_field')[0].style.color = 'red'; document.getElementById('phone_field').style.borderColor = 'red'}
+      else {document.getElementsByClassName('field-phone_field')[0].style.color = 'var(--tg-theme-text-color)'; 
+      document.getElementById('phone_field').style.borderColor = 'var(--tg-theme-link-color)'}
       if(!q1){document.getElementsByClassName('field-radio-group-1')[0].style.color = 'red';}
+      else {document.getElementsByClassName('field-radio-group-1')[0].style.color = 'var(--tg-theme-text-color)';}
       if(!q2){document.getElementsByClassName('field-radio-group-2')[0].style.color = 'red';}
+      else {document.getElementsByClassName('field-radio-group-2')[0].style.color = 'var(--tg-theme-text-color)';}
       if(!q3all){document.getElementsByClassName('field-checkbox-group-1')[0].style.color = 'red';}
+      else {document.getElementsByClassName('field-checkbox-group-1')[0].style.color = 'var(--tg-theme-text-color)';}
    }
 });
 
