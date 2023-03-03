@@ -411,26 +411,28 @@
    tg.MainButton.show()
 
    tg.MainButton.onClick(function() {
-      let Type = "Результаты опроса"
-      let Name = document.getElementById('name').value;
-      let Phone = document.getElementById('name').value;
-      let q1 = document.querySelector('input[name="radio-group-1"]:checked').value;
-      let q2 = document.querySelector('input[name="radio-group-2"]:checked').value;
-      let q3 = document.querySelectorAll('input[name="checkbox-group-1"]:checked');
-      var q3all = '';
-      for (var i = 0; i < q3.length; i++) {
-         q3all = q3all + '- ' + q3[i].value + ' \n';
-      }
+   //    let Type = "Результаты опроса"
+   //    let Name = document.getElementById('name').value;
+   //    let Phone = document.getElementById('name').value;
+   //    let q1 = document.querySelector('input[name="radio-group-1"]:checked').value;
+   //    let q2 = document.querySelector('input[name="radio-group-2"]:checked').value;
+   //    let q3 = document.querySelectorAll('input[name="checkbox-group-1"]:checked');
+   //    var q3all = '';
+   //    for (var i = 0; i < q3.length; i++) {
+   //       q3all = q3all + '- ' + q3[i].value + ' \n';
+   //    }
 	
-   tg.sendData(
-    Type 
-    + '\n' + "Имя: "+ Name 
-    + '\n' + "Телефон: " + Phone 
-    + '\n' + "Вам нравятся активные тренировки?: "+ q1 
-    + '\n' + "Пробовали ранее занятия йогой? "+ q2 
-    + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
-    ); 
-    tg.close();
+   // tg.sendData(
+   //  Type 
+   //  + '\n' + "Имя: "+ Name 
+   //  + '\n' + "Телефон: " + Phone 
+   //  + '\n' + "Вам нравятся активные тренировки?: "+ q1 
+   //  + '\n' + "Пробовали ранее занятия йогой? "+ q2 
+   //  + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
+   //  ); 
+   //  tg.close();
+
+   tg.sendData("test")
 });
 
    var phoneMask = IMask(
