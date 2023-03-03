@@ -43,14 +43,79 @@
 </head>
 
 <body>
-   <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
-   </div>
-   <p>Just text</p> <!--Просто текст для проверки-->
-   <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
-   <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
-   <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-   <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
+   <div class="rendered-form">
+      <div class="">
+          <p class="form-title" access="false" id="control-3788243">Сертификат 500Р за прохождение нашего мини-опроса!</p>
+      </div>
+      <div class="">
+          <p access="false" id="control-9632814"><span style="color: rgb(0, 0, 0); font-family: -apple-system, BlinkMacSystemFont, Roboto, ">Ответьте на несколько вопросов и узнайте, какое направление тренировок идеально подойдет именно Вам!</span>
+          </p>
+      </div>
+      <div class="formbuilder-text form-group field-name_field">
+          <label for="name_field" class="formbuilder-text-label">Имя<span class="formbuilder-required">*</span></label>
+          <input type="text" placeholder="Имя" class="form-control" name="name_field" access="false" id="name_field" required="required" aria-required="true">
+      </div>
+      <div class="formbuilder-text form-group field-phone_field">
+          <label for="phone_field" class="formbuilder-text-label">Номер телефона<span class="formbuilder-required">*</span></label>
+          <input type="tel" placeholder="+7 *** *** ** **" class="form-control" name="phone_field" access="false" maxlength="12" id="phone_field" required="required" aria-required="true">
+      </div>
+      <div class="formbuilder-radio-group form-group field-radio-group-1">
+          <label for="radio-group-1" class="formbuilder-radio-group-label">Вам нравятся активные тренировки?<span class="formbuilder-required">*</span></label>
+          <div class="radio-group">
+              <div class="formbuilder-radio">
+                  <input name="radio-group-1" access="false" id="radio-group-1-0" required="required" aria-required="true" value="option-1" type="radio">
+                  <label for="radio-group-1-0">Да</label>
+              </div>
+              <div class="formbuilder-radio">
+                  <input name="radio-group-1" access="false" id="radio-group-1-1" required="required" aria-required="true" value="option-2" type="radio">
+                  <label for="radio-group-1-1">Нет</label>
+              </div>
+              <div class="formbuilder-radio">
+                  <input name="radio-group-1" access="false" id="radio-group-1-2" required="required" aria-required="true" value="option-3" type="radio">
+                  <label for="radio-group-1-2">Не пробовал(а)</label>
+              </div>
+          </div>
+      </div>
+      <div class="formbuilder-radio-group form-group field-radio-group-2">
+          <label for="radio-group-2" class="formbuilder-radio-group-label">Пробовали ранее занятия йогой?<span class="formbuilder-required">*</span></label>
+          <div class="radio-group">
+              <div class="formbuilder-radio">
+                  <input name="radio-group-2" access="false" id="radio-group-2-0" required="required" aria-required="true" value="option-1" type="radio">
+                  <label for="radio-group-2-0">Да</label>
+              </div>
+              <div class="formbuilder-radio">
+                  <input name="radio-group-2" access="false" id="radio-group-2-1" required="required" aria-required="true" value="option-2" type="radio">
+                  <label for="radio-group-2-1">Нет</label>
+              </div>
+          </div>
+      </div>
+      <div class="formbuilder-checkbox-group form-group field-checkbox-group-1">
+          <label for="checkbox-group-1" class="formbuilder-checkbox-group-label">Что из этого вас беспокоит?<span class="formbuilder-required">*</span></label>
+          <div class="checkbox-group">
+              <div class="formbuilder-checkbox">
+                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-0" required="required" aria-required="true" value="option-1" type="checkbox">
+                  <label for="checkbox-group-1-0">Неудовлетворяющая фигура</label>
+              </div>
+              <div class="formbuilder-checkbox">
+                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-1" required="required" aria-required="true" value="option-2" type="checkbox">
+                  <label for="checkbox-group-1-1">Сниженное настроение</label>
+              </div>
+              <div class="formbuilder-checkbox">
+                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-2" required="required" aria-required="true" value="option-3" type="checkbox">
+                  <label for="checkbox-group-1-2">Отсутствие энергии</label>
+              </div>
+              <div class="formbuilder-checkbox">
+                  <input name="checkbox-group-1[]" access="false" id="checkbox-group-1-3" required="required" aria-required="true" value="option-4" type="checkbox">
+                  <label for="checkbox-group-1-3">Боли в теле</label>
+              </div>
+          </div>
+      </div>
+      <div class="formbuilder-button form-group field-button-1">
+          <button type="submit" class="btn-default btn" name="button-1" id="btn" access="false" style="default" id="button-1">Отправить</button>
+      </div>
+  </div>
 </body>
+
 
 <script>
    let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
