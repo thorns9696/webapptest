@@ -140,6 +140,9 @@
       .input[data-placeholder] {
           position: relative;
       }
+      .hint{
+	       color: red;
+      }
       .input[data-placeholder]:empty:before {
           position: absolute;
           left: 0;
@@ -394,6 +397,7 @@
               </div>
           </div>
       </div>
+      <p class="hint" style="visibility: hidden;">Заполните обязательные поля</p>
       <!-- <div class="formbuilder-button form-group field-button-1">
           <button type="submit" class="btn-primary btn" name="button-1" id="btn" access="false" style="default" id="button-1">Отправить</button>
       </div> -->
@@ -421,15 +425,24 @@
       for (var i = 0; i < q3.length; i++) {
          q3all = q3all + '- ' + q3[i].value + ' \n';
       }
-	
-   tg.sendData(
-    Type 
-    + '\n' + "Имя: "+ Name 
-    + '\n' + "Телефон: " + Phone 
-    + '\n' + "Вам нравятся активные тренировки?: "+ q1 
-    + '\n' + "Пробовали ранее занятия йогой? "+ q2 
-    + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
-    ); 
+
+   if (Name && Phone && q1 && q2 && q3all) {
+      tg.sendData(
+      Type 
+      + '\n' + "Имя: "+ Name 
+      + '\n' + "Телефон: " + Phone 
+      + '\n' + "Вам нравятся активные тренировки?: "+ q1 
+      + '\n' + "Пробовали ранее занятия йогой?: "+ q2 
+      + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
+      ); 
+   } else {
+      document.getElementsByClassName('hint')[0].style.visibility = 'visible';
+      if(!Name){document.getElementsByClassName('field-name_field')[0].style.color = 'red';}
+      if(!Phone){document.getElementsByClassName('field-phone_field')[0].style.color = 'red';}
+      if(!q1){document.getElementsByClassName('field-radio-group-1')[0].style.color = 'red';}
+      if(!q2){document.getElementsByClassName('field-radio-group-2')[0].style.color = 'red';}
+      if(!q3all){document.getElementsByClassName('field-checkbox-group-1')[0].style.color = 'red';}
+   }
 });
 
    var phoneMask = IMask(
