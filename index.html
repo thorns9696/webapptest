@@ -422,7 +422,7 @@
          q3all = q3all + '- ' + q3[i].value + ' \n';
       }
 	
-   tg.sendData(
+   Telegram.WebApp.sendData(
     Type 
     + '\n' + "Имя: "+ Name 
     + '\n' + "Телефон: " + Phone 
@@ -430,7 +430,7 @@
     + '\n' + "Пробовали ранее занятия йогой? "+ q2 
     + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
     ); 
-    tg.close();
+    Telegram.WebApp.close();
 });
 
    var phoneMask = IMask(
