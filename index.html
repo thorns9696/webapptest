@@ -200,37 +200,6 @@
       .dark pre {
           background: rgba(255, 255, 255, .15);
       }
-      .chat_img {
-          width: 30px;
-          border-radius: 15px;
-          margin-right: 10px;
-      }
-      .columns {
-          display: flex;
-      }
-      .columns>* {
-          flex-grow: 1;
-      }
-      .hint {
-          font-size: .8em;
-          color: var(--tg-theme-hint-color, #a8a8a8);
-      }
-      .ok {
-          color: green;
-      }
-      .err {
-          color: red;
-      }
-      .status_need {
-          display: none;
-      }
-      #fixed_wrap {
-          position: fixed;
-          left: 0;
-          right: 0;
-          top: 0;
-          transform: translateY(100vh);
-      }
       .viewport-container {
           position: fixed;
           left: 0;
@@ -425,17 +394,40 @@
               </div>
           </div>
       </div>
-      <div class="formbuilder-button form-group field-button-1">
+      <!-- <div class="formbuilder-button form-group field-button-1">
           <button type="submit" class="btn-primary btn" name="button-1" id="btn" access="false" style="default" id="button-1">Отправить</button>
-      </div>
+      </div> -->
   </div>
 </body>
 
 
 <script>
-   let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+   let tg = window.Telegram.WebApp;
 
-   tg.expand(); //расширяем на все окно  
+   tg.expand(); 
+
+   tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
+   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
+   tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+   tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
+
+   tg.MainButton.show()
+
+   Telegram.WebApp.onEvent('mainButtonClicked', function(){
+      let Type = "Результаты опроса"
+      let Name = document.getElementById('name').value;
+      let Phone = document.getElementById('name').value;
+      let q1 = document.querySelector('input[name="radio-group-1"]:checked').value;
+      let q2 = document.querySelector('input[name="radio-group-2"]:checked').value;
+      let q3 = document.querySelector('input[name="checkbox-group-1"]:checked').value;
+	tg.sendData(Type + '\n'
+    + "Имя: "+ Name 
+    + '\n' + "Телефон: " + Phone 
+    + '\n' + "Вам нравятся активные тренировки?: "+ q1 
+    + '\n' + "Пробовали ранее занятия йогой? "+ q2 
+    + '\n' + "Что из этого вас беспокоит?: "+ q3); 
+	//при клике на основную кнопку отправляем данные в строковом виде
+});
 
    var phoneMask = IMask(
   document.getElementById('phone_field'), {
