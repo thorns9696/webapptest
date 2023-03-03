@@ -347,15 +347,15 @@
           <label for="radio-group-1" class="formbuilder-radio-group-label">Вам нравятся активные тренировки?<span class="formbuilder-required">*</span></label>
           <div class="radio-group">
               <div class="formbuilder-radio">
-                  <input name="radio-group-1" access="false" id="radio-group-1-0" required="required" aria-required="true" value="option-1" type="radio">
+                  <input name="radio-group-1" access="false" id="radio-group-1-0" required="required" aria-required="true" value="Да" type="radio">
                   <label for="radio-group-1-0">Да</label>
               </div>
               <div class="formbuilder-radio">
-                  <input name="radio-group-1" access="false" id="radio-group-1-1" required="required" aria-required="true" value="option-2" type="radio">
+                  <input name="radio-group-1" access="false" id="radio-group-1-1" required="required" aria-required="true" value="Нет" type="radio">
                   <label for="radio-group-1-1">Нет</label>
               </div>
               <div class="formbuilder-radio">
-                  <input name="radio-group-1" access="false" id="radio-group-1-2" required="required" aria-required="true" value="option-3" type="radio">
+                  <input name="radio-group-1" access="false" id="radio-group-1-2" required="required" aria-required="true" value="Не пробовал(а)" type="radio">
                   <label for="radio-group-1-2">Не пробовал(а)</label>
               </div>
           </div>
@@ -364,11 +364,11 @@
           <label for="radio-group-2" class="formbuilder-radio-group-label">Пробовали ранее занятия йогой?<span class="formbuilder-required">*</span></label>
           <div class="radio-group">
               <div class="formbuilder-radio">
-                  <input name="radio-group-2" access="false" id="radio-group-2-0" required="required" aria-required="true" value="option-1" type="radio">
+                  <input name="radio-group-2" access="false" id="radio-group-2-0" required="required" aria-required="true" value="Да" type="radio">
                   <label for="radio-group-2-0">Да</label>
               </div>
               <div class="formbuilder-radio">
-                  <input name="radio-group-2" access="false" id="radio-group-2-1" required="required" aria-required="true" value="option-2" type="radio">
+                  <input name="radio-group-2" access="false" id="radio-group-2-1" required="required" aria-required="true" value="Нет" type="radio">
                   <label for="radio-group-2-1">Нет</label>
               </div>
           </div>
@@ -377,19 +377,19 @@
           <label for="checkbox-group-1" class="formbuilder-checkbox-group-label">Что из этого вас беспокоит?<span class="formbuilder-required">*</span></label>
           <div class="checkbox-group">
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-0" required="required" aria-required="true" value="option-1" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-0" required="required" aria-required="true" value="Неудовлетворяющая фигура" type="checkbox">
                   <label for="checkbox-group-1-0">Неудовлетворяющая фигура</label>
               </div>
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-1" required="required" aria-required="true" value="option-2" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-1" required="required" aria-required="true" value="Сниженное настроение" type="checkbox">
                   <label for="checkbox-group-1-1">Сниженное настроение</label>
               </div>
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-2" required="required" aria-required="true" value="option-3" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-2" required="required" aria-required="true" value="Отсутствие энергии" type="checkbox">
                   <label for="checkbox-group-1-2">Отсутствие энергии</label>
               </div>
               <div class="formbuilder-checkbox">
-                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-3" required="required" aria-required="true" value="option-4" type="checkbox">
+                  <input name="checkbox-group-1" access="false" id="checkbox-group-1-3" required="required" aria-required="true" value="Боли в теле" type="checkbox">
                   <label for="checkbox-group-1-3">Боли в теле</label>
               </div>
           </div>
@@ -416,14 +416,19 @@
       let Phone = document.getElementById('name').value;
       let q1 = document.querySelector('input[name="radio-group-1"]:checked').value;
       let q2 = document.querySelector('input[name="radio-group-2"]:checked').value;
-      let q3 = document.querySelector('input[name="checkbox-group-1"]:checked').value;
-	tg.sendData(Type + '\n'
-    + "Имя: "+ Name 
+      let q3 = document.querySelectorAll('input[name="checkbox-group-1"]:checked');
+      var q3all = '';
+      for (var i = 0; i < q3.length; i++) {
+         q3all = q3all + '- ' + q3[i].value + ' \n';
+      }
+	tg.sendData(
+    Type 
+    + '\n' + "Имя: "+ Name 
     + '\n' + "Телефон: " + Phone 
     + '\n' + "Вам нравятся активные тренировки?: "+ q1 
     + '\n' + "Пробовали ранее занятия йогой? "+ q2 
-    + '\n' + "Что из этого вас беспокоит?: "+ q3); 
-	//при клике на основную кнопку отправляем данные в строковом виде
+    + '\n' + "Что из этого вас беспокоит?: "+ q3
+    ); 
 });
 
    var phoneMask = IMask(
