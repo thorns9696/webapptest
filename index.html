@@ -276,6 +276,13 @@
       small {
           font-size: 12px;
       }
+
+      .form-group {
+         display: flex;
+         flex-direction: row; 
+         justify-content: center; 
+         align-items: center;
+      }
   </style>
 </head>
 
@@ -294,7 +301,7 @@
       </div>
       <div class="formbuilder-text form-group field-phone_field">
           <label for="phone_field" class="formbuilder-text-label">Номер телефона<span class="formbuilder-required">*</span></label>
-          <input type="tel" placeholder="+7 *** *** ** **" class="form-control" name="phone_field" access="false" maxlength="12" id="phone_field" required="required" aria-required="true">
+          <input type="text" placeholder="+7 *** *** ** **" class="form-control" name="phone_field" access="false" maxlength="12" id="phone_field" required="required" aria-required="true">
       </div>
       <div class="formbuilder-radio-group form-group field-radio-group-1">
           <label for="radio-group-1" class="formbuilder-radio-group-label">Вам нравятся активные тренировки?<span class="formbuilder-required">*</span></label>
