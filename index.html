@@ -410,7 +410,7 @@
 
    tg.MainButton.show()
 
-   Telegram.WebApp.onEvent('mainButtonClicked', function(){
+   tg.onEvent('mainButtonClicked', function(){
       let Type = "Результаты опроса"
       let Name = document.getElementById('name').value;
       let Phone = document.getElementById('name').value;
@@ -421,13 +421,14 @@
       for (var i = 0; i < q3.length; i++) {
          q3all = q3all + '- ' + q3[i].value + ' \n';
       }
-	tg.sendData(
+	
+   tg.sendData(
     Type 
     + '\n' + "Имя: "+ Name 
     + '\n' + "Телефон: " + Phone 
     + '\n' + "Вам нравятся активные тренировки?: "+ q1 
     + '\n' + "Пробовали ранее занятия йогой? "+ q2 
-    + '\n' + "Что из этого вас беспокоит?: "+ q3
+    + '\n' + "Что из этого вас беспокоит?: " + '\n' + q3all
     ); 
 });
 
