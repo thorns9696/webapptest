@@ -669,7 +669,11 @@
     }
 
     var phoneMask = IMask(document.getElementById("phone_field"), {
-      mask: "+7 000 000 00 00",
+      mask: "+{7} #00 000 00 00",
+      lazy: false,
+      definitions: {
+        '#': /9/
+      }
     });
   </script>
 </html>
