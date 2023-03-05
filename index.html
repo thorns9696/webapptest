@@ -544,7 +544,7 @@
         for (var i = 0; i < q3.length; i++) {
           q3all = q3all + "- " + q3[i].value + " \n";
         }
-        if (Name && Phone.length == 14 && q1 && q2 && q3all) {
+        if (Name && Phone.length == 16 && q1 && q2 && q3all) {
           tg.sendData(
             Type +
               "\n" +
@@ -581,7 +581,7 @@
             document.getElementById("name_field").style.borderColor =
               "var(--tg-theme-link-color)";
           }
-          if (Phone.length < 14) {
+          if (Phone.length < 16) {
             document.getElementsByClassName(
               "field-phone_field"
             )[0].style.color = "red";
