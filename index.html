@@ -544,7 +544,7 @@
         for (var i = 0; i < q3.length; i++) {
           q3all = q3all + "- " + q3[i].value + " \n";
         }
-        if (Name && Phone && q1 && q2 && q3all) {
+        if (Name && Phone.length == 14 && q1 && q2 && q3all) {
           tg.sendData(
             Type +
               "\n" +
